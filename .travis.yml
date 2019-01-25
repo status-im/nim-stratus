@@ -1,5 +1,7 @@
 language: c # or other C/C++ variants
 
+dist: xenial
+
 services:
   - docker
 
@@ -7,7 +9,8 @@ os:
   - linux
 
 script:
-  - sh start-docker.sh
+  - chmod 777 .
+  - docker run -it --rm -v $PWD:/stratus -w /stratus a12e/docker-qt:5.12-gcc_64 sh build-in-docker.sh
 
 after_success:
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
