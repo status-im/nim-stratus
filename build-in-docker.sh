@@ -10,7 +10,7 @@
   cd ../..
 }
 
-sudo apt-get install -y cmake
+sudo apt-get install -y --fix-missing cmake
 
 export PATH=$PATH:$PWD/docker/nim/bin
 export PKG_CONFIG_PATH=/opt/qt/5.12.0/gcc_64/lib/pkgconfig
