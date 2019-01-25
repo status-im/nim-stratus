@@ -16,8 +16,4 @@ export PATH=$PATH:$PWD/docker/nim/bin
 export PKG_CONFIG_PATH=/opt/qt/5.12.0/gcc_64/lib/pkgconfig
 export LD_LIBRARY_PATH=/opt/qt/5.12.0/gcc_64/lib/
 
-cd ../..
-nimble develop
-cd examples/stratus
-
 make clean appimage
