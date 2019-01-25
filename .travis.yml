@@ -10,12 +10,12 @@ os:
 
 script:
   - chmod 777 .
-  - docker run -it --rm -v $PWD:/stratus -w /stratus a12e/docker-qt:5.12-gcc_64 sh build-in-docker.sh
+  - docker run -it --cap-add SYS_ADMIN --device /dev/fuse -v $PWD:/stratus -w /stratus a12e/docker-qt:5.12-gcc_64 sh build-in-docker.sh
 
 after_success:
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
   - if [ "$TRAVIS_BRANCH" != "$TRAVIS_TAG" ] && [ "$TRAVIS_BRANCH" != "master" ]; then export TRAVIS_EVENT_TYPE=pull_request; fi
-  - bash upload.sh Stratus-x86_64.AppImage
+  - bash upload.sh Stratus-*.AppImage
 
 branches:
   except:
