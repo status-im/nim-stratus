@@ -10,6 +10,7 @@
   cd ../..
 }
 
+sudo apt-get update
 sudo apt-get install -y --fix-missing cmake
 
 export PATH=$PATH:$PWD/docker/nim/bin
