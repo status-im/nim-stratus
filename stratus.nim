@@ -30,7 +30,7 @@ var
   rootItem: Root
 
 proc subscribeChannel(
-    channel: string, handler: proc (msg: ReceivedMessage)) =
+    channel: string, handler: proc (msg: ReceivedMessage) {.gcsafe.}) =
   var ctx: HMAC[sha256]
   var symKey: SymKey
   discard ctx.pbkdf2(channel, "", 65356, symKey)
@@ -46,7 +46,7 @@ proc subscribeChannel(
                                          topics = @[topic]),
                               handler)
 
-proc handler(msg: ReceivedMessage) =
+proc handler(msg: ReceivedMessage) {.gcsafe.} =
   try:
     # ["~#c4",["dcasdc","text/plain","~:public-group-user-message",
     #          154604971756901,1546049717568,[
