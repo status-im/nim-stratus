@@ -1,0 +1,6 @@
+DOtherSide/
+docker
+*.AppImage
+*.qmlc
+tmp/
+stratus

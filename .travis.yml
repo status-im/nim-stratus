@@ -1,0 +1,11 @@
+language: c # or other C/C++ variants
+
+services:
+  - docker
+
+os:
+  - linux
+
+script:
+  - sh build-in-docker.sh
+
