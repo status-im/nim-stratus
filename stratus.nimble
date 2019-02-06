@@ -8,6 +8,6 @@ license       = "MIT"
 
 bin           = @["stratus"]
 
-requires "eth_p2p",
+requires "eth",
          "nimqml",
          "cligen 0.9.18"

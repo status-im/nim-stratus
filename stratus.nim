@@ -8,10 +8,10 @@
 #            MIT license (LICENSE-MIT)
 
 import
-  cligen, sequtils, options, strutils, parseopt, asyncdispatch2, json, times,
+  cligen, sequtils, options, strutils, parseopt, chronos, json, times,
   nimcrypto/[bcmode, hmac, rijndael, pbkdf2, sha2, sysrand, utils, keccak, hash],
-  eth_keys, rlp, eth_p2p, eth_p2p/rlpx_protocols/[whisper_protocol],
-  eth_p2p/[discovery, enode, peer_pool], chronicles
+  eth/keys, eth/rlp, eth/p2p, eth/p2p/rlpx_protocols/[whisper_protocol],
+  eth/p2p/[discovery, enode, peer_pool], chronicles
 
 import NimQml, model/root, fleets
 
