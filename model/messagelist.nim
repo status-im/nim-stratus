@@ -41,7 +41,6 @@ QtObject:
       of StatusMessageRoles.Source: result = newQVariant(message.source)
       of StatusMessageRoles.Message: result = newQVariant(message.message)
       of StatusMessageRoles.Time: result = newQVariant(message.time)
-      #else: return
 
   method roleNames(self: MessageList): Table[int, string] =
     { StatusMessageRoles.Channel.int:"channel",
