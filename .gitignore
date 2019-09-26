@@ -1,4 +1,7 @@
-DOtherSide/
+/nimcache
+/vendor/.nimble
+/tags
+
 docker
 *.AppImage
 *.qmlc
