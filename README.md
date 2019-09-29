@@ -11,6 +11,7 @@
 Stratus is an proof-of-concept chat client for the Status chat protocol that serves as an example of how [nim-eth p2p](https://github.com/status-im/nim-eth/blob/master/doc/p2p.md) can be used. See [the introductory post](https://discuss.status.im/t/hello-stratus-toying-around-with-nimbus-and-qml/905) for more information.
 
 :construction: This is a prototype that's only sporadically maintained :construction:
+
 :construction: Though in theory, both Nim and QT come with excellent cross-platform support, in practice this prototype was developed on Linux. Your mileage may vary. :construction:
 
 ## Build & run
