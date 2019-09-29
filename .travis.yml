@@ -14,8 +14,8 @@ script:
 
 after_success:
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-  - if [ "$TRAVIS_BRANCH" != "$TRAVIS_TAG" ] && [ "$TRAVIS_BRANCH" != "master" ]; then export TRAVIS_EVENT_TYPE=pull_request; fi
-  - bash upload.sh Stratus-*.AppImage
+  # only upload the Docker image for CI builds triggered by tags
+  - if [[ "$TRAVIS_BRANCH" == "$TRAVIS_TAG" ]]; then bash upload.sh Stratus-*.AppImage; fi
 
 branches:
   except:
