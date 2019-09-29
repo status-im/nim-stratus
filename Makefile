@@ -39,7 +39,7 @@ $(DEPLOYQT):
 
 DOTHERSIDE := vendor/DOtherSide/build/lib/libDOtherSideStatic.a
 
-$(DOTHERSIDE):
+$(DOTHERSIDE): | deps
 	echo -e $(BUILD_MSG) "DOtherSide"
 	+ cd vendor/DOtherSide && \
 		mkdir -p build && \
@@ -71,5 +71,4 @@ appimage: $(APPIMAGE)
 .PHONY: clean
 clean: | clean-common
 	rm -rf $(APPIMAGE) stratus vendor/DOtherSide/build tmp/dist
-	- [[ -d vendor/DOtherSide/build ]] && cd vendor/DOtherSide/build && $(MAKE) clean
 

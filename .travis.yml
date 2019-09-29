@@ -9,7 +9,7 @@ os:
   - linux
 
 script:
-  - chmod 777 .
+  - chmod -R 777 .
   - docker run -it --cap-add SYS_ADMIN --device /dev/fuse -v $PWD:/stratus -w /stratus a12e/docker-qt:5.12-gcc_64 sh build-in-docker.sh
 
 after_success:

@@ -1,20 +1,13 @@
 #!/bin/sh
 
-[ -f docker/nim/bin/nim ] || {
-  mkdir -p docker
-  cd docker
-  git clone https://github.com/status-im/nim.git --depth 1
-  cd nim
-  sh build_all.sh
-  bin/nim c -d:release -o:bin/nimble dist/nimble/src/nimble
-  cd ../..
-}
-
 sudo apt-get update
 sudo apt-get install -y --fix-missing cmake
 
-export PATH=$PATH:$PWD/docker/nim/bin
-export PKG_CONFIG_PATH=/opt/qt/5.12.0/gcc_64/lib/pkgconfig
-export LD_LIBRARY_PATH=/opt/qt/5.12.0/gcc_64/lib/
+# the minor Qt version keeps getting updated inside the Docker image
+export PKG_CONFIG_PATH="$(echo /opt/qt/*/gcc_64/lib/pkgconfig)"
+export LD_LIBRARY_PATH="$(echo /opt/qt/*/gcc_64/lib/)"
 
-make clean appimage
+[ -e vendor/nimbus-build-system/makefiles ] || make
+make clean
+make -j2 appimage
+
