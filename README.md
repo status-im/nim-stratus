@@ -17,7 +17,7 @@ Stratus is an proof-of-concept chat client for the Status chat protocol that ser
 
 ``` bash
 # Build using make
-make
+make # you'll have to run this twice, if it's a freshly cloned repo
 
 # Run
 ./stratus
@@ -42,4 +42,5 @@ or
 
 * Apache License, Version 2.0, ([LICENSE-APACHEv2](LICENSE-APACHEv2) or http://www.apache.org/licenses/LICENSE-2.0)
 
-at your option. This file may not be copied, modified, or distributed except according to those terms.
+at your option. These files may not be copied, modified, or distributed except according to those terms.
+
