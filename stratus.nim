@@ -8,7 +8,7 @@
 #            MIT license (LICENSE-MIT)
 
 import
-  cligen, sequtils, options, strutils, parseopt, chronos, json, times,
+  cligen, options, strutils, chronos, json, times,
   nimcrypto/[bcmode, hmac, rijndael, pbkdf2, sha2, sysrand, utils, keccak, hash],
   eth/keys, eth/rlp, eth/p2p, eth/p2p/rlpx_protocols/[whisper_protocol],
   eth/p2p/[discovery, enode, peer_pool], chronicles

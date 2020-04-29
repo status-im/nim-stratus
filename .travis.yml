@@ -1,6 +1,6 @@
-language: c # or other C/C++ variants
+language: c
 
-dist: xenial
+dist: bionic
 
 services:
   - docker
