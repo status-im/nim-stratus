@@ -42,7 +42,7 @@ proc subscribeChannel(
 
   info "Subscribing to channel", channel, topic, symKey
 
-  discard node.subscribeFilter(newFilter(symKey = some(symKey),
+  discard node.subscribeFilter(initFilter(symKey = some(symKey),
                                          topics = @[topic]),
                               handler)
 
@@ -70,21 +70,19 @@ proc run(port: uint16 = 30303) =
   let address = Address(
     udpPort: port.Port, tcpPort: port.Port, ip: parseIpAddress("0.0.0.0"))
 
-  let keys = newKeyPair()
+  let keys = KeyPair.random().tryGet()
   node = newEthereumNode(keys, address, 1, nil, addAllCapabilities = false)
   node.addCapability Whisper
 
   var bootnodes: seq[ENode] = @[]
   for nodeId in MainBootnodes:
-    var bootnode: ENode
-    discard initENode(nodeId, bootnode)
+    let bootnode = ENode.fromString(nodeId).tryGet()
     bootnodes.add(bootnode)
 
   asyncCheck node.connectToNetwork(bootnodes, true, true)
   # main network has mostly non SHH nodes, so we connect directly to SHH nodes
   for nodeId in WhisperNodes:
-    var whisperENode: ENode
-    discard initENode(nodeId, whisperENode)
+    let whisperENode = ENode.fromString(nodeId).tryGet()
     var whisperNode = newNode(whisperENode)
 
     asyncCheck node.peerPool.connectToNode(whisperNode)
