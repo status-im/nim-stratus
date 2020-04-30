@@ -1,5 +1,6 @@
 #!/bin/sh
 
+sudo add-apt-repository ppa:git-core/ppa
 sudo apt-get update
 sudo apt-get install -y --fix-missing cmake build-essential git libpcre3-dev libssl-dev
 
