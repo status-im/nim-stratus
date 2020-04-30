@@ -16,10 +16,10 @@ Stratus is an proof-of-concept chat client for the Status chat protocol that ser
 ## Build & run
 
 ``` bash
-# Build using make
-make # you'll have to run this twice, if it's a freshly cloned repo
+# Build it:
+make # you can add "-j4" if you have 4 CPU cores available, to run some jobs in parallel
 
-# Run
+# Run it:
 ./stratus
 
 # That's it.
